@@ -2,6 +2,8 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, TouchableWithoutFeedback } from 'react-native';
 
+import ModalBox from '../libs/ModalBox';
+
 export default class Root extends Component{
   constructor(props) {
     super(props);
@@ -9,8 +11,7 @@ export default class Root extends Component{
   render() {
     return (
       <View style={[styles.wrapper, styles.center]}>
-        {/*this.refs.modalBoxRef.show()*/}
-        <TouchableWithoutFeedback>
+        <TouchableWithoutFeedback onPress={() => this.refs.modalBox.show()}>
           <View style={[styles.btnWrapper, styles.center]}>
             <Text style={styles.btnTxt}>弹窗1</Text>
           </View>
@@ -20,6 +21,8 @@ export default class Root extends Component{
             <Text style={styles.btnTxt}>日期组件</Text>
           </View>
         </TouchableWithoutFeedback>
+
+        <ModalBox ref="modalBox" color="#5fc8ce" />
       </View>
     )
   }
